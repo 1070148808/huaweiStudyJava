@@ -1,0 +1,40 @@
+#-*-coding:utf-8-*- 
+__author__ = 'z00464153'
+import json,xlwt,requests
+from xlrd import *
+# import sys
+#
+# reload(sys)
+# sys.setdefaultencoding('utf-8')
+from xlutils.copy import copy
+
+#copy example.xls titles
+example_excel = open_workbook("example.xls")
+# example_excel_copy = copy(example_excel)
+# sheet_name_list=str(example_excel.sheet_names()).replace('u\'','\'').decode("unicode-escape")
+sheet_name = example_excel.sheet_names()[0]
+# print sheet_name_list
+example_table=example_excel.sheet_by_name(sheet_name)
+example_ncols=example_table.ncols
+example_values=example_table.row_values(0)
+
+#write titles
+result_excel = xlwt.Workbook()
+sheet = result_excel.add_sheet(sheet_name,cell_overwrite_ok=True)
+for i in range(0,example_ncols):
+    sheet.write(0, i, example_values[i])
+
+#download data
+webdata = requests.get('http://10.186.241.135:8080/statistics/cbsCheckerDefectInfo')
+strdata=webdata.content
+
+#data to json
+jsondata=json.dumps(strdata)
+
+##########
+
+
+
+
+#save excel
+result_excel.save("result_excel.xls")
