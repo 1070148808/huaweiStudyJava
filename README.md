@@ -19,3 +19,6 @@ https://files.downloadnow-4.com/s/software/16/20/53/16/APKPure_v2.13.3_apkpure.c
 https://github.com/bannedbook/fanqiang/wiki/%E5%AE%89%E5%8D%93%E7%BF%BB%E5%A2%99%E8%BD%AF%E4%BB%B6
 
 https://unwire.hk/2017/08/08/shadowsockr-android/tips-2/
+
+
+https://github.com/ZSCDumin/VPN
